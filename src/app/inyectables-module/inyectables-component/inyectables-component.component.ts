@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { InyectablesServiceService } from '../inyectables-service.service';
+import { PersistentDataService } from '../../shared/persistent-data.service';
 
 @Component({
   selector: 'app-inyectables-component',
@@ -10,8 +11,11 @@ import { InyectablesServiceService } from '../inyectables-service.service';
 })
 export class InyectablesComponentComponent {
   message: string;
+  persistentData: string;
 
-  constructor(private customService: InyectablesServiceService){
+  constructor(private customService: InyectablesServiceService, 
+    private persistentDataService: PersistentDataService){
     this.message = customService.getMessage();
+    this.persistentData = persistentDataService.persistentData
   }
 }
